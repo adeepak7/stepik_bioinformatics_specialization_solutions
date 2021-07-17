@@ -8,15 +8,13 @@ unique_nucleotides = {'A', 'C', 'G', 'T'}
 def suffix(pattern):
     if len(pattern) <= 1:
         return None
-    else:
-        return pattern[1: (len(pattern))]
+    return pattern[1: (len(pattern))]
 
 
 def first_symbol(pattern):
     if len(pattern) == 0:
         return None
-    else:
-        return pattern[0]
+    return pattern[0]
 
 
 def find_neighbors_with_expected_hamming_distance(pattern, expected_hamming_distance):
