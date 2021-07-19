@@ -1,14 +1,3 @@
-"""
-finding_hidden_messages_in_dna
--------------------------------
--------------------------------
-
-A package that encapsulates the solutions to the Coursera Bioinformatics specialization.
-"""
-
-__author__ = "Deepak Tatyaji Ahire"
-__version__ = '0.1.0'
-
 from .longest_prefix_that_is_also_suffix import longest_prefix_that_is_also_suffix
 from .kmp import kmp
 from .reverse_complement import find_reverse_complement
