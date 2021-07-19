@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.6]
 
     steps:
     - uses: actions/checkout@v2
@@ -40,16 +40,17 @@ jobs:
       run: |
         make clean
         make test-all
-    - name: Get the supported versions of python
-      run: supported_versions=matrix.python-version
-    - name: Set the supported versions of python
-      run: echo "VERSIONS_SUPPORTED=$supported_versions" >> $GITHUB_ENV
+    - name: Get and set the supported versions of python
+      run: |
+        supported_versions=matrix.python-version
+        echo $supported_versions
+        echo "VERSIONS_SUPPORTED=$supported_versions" >> $GITHUB_ENV
     - name: Create the Badge
       uses: schneegans/dynamic-badges-action@v1.1.0
       with:
         auth: ${{ secrets.GIST_SECRET }}
         gistID: d0c6d45ae0cec585cacf9079ead088fb
         filename: answer.json
-        label: Python versions for build
+        label: Build tested against versions
         message: ${{ env.VERSIONS_SUPPORTED }}
         color: blue
