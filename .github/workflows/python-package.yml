@@ -42,7 +42,7 @@ jobs:
         make test-all
     - name: Get and set the supported versions of python
       run: |
-        supported_versions=matrix.python-version
+        supported_versions=${{ matrix.python-version }}
         echo $supported_versions
         echo "VERSIONS_SUPPORTED=$supported_versions" >> $GITHUB_ENV
     - name: Create the Badge
